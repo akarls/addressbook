@@ -1,0 +1,68 @@
+
+    <html>
+    <head>
+<meta charset="unicode">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function(){
+        $.ajax({url: "index.cgi?action=count", success: function(result){
+            $("#div1").html(result);
+        }});
+});
+</script>
+   <style>
+         body { margin: 100px 40px 10px 70px; }
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #eeeeea;
+}     </style>
+
+    <title>Address book</title>
+    </head>
+    <body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+
+<a href="index.cgi" id="topImage" class="btn-outline btn btn-warning btn-small">
+          <span class="glyphicon glyphicon-rub"></span></a>
+
+<a href="?action=page_list">
+<button id="button1" class="btn btn-primary" type="button">
+  Contacts: <span id="div1" class="badge">#</span>
+</button>
+</a>
+
+<a href="?action=page_add">
+<button type="button" class="btn btn-default navbar-btn">New contact</button></a>
+
+
+ <form class="navbar-form navbar-right" role="search" onsubmit="return toSubmit();">
+        <div class="form-group">
+          <input type="text" id="search_field" class="form-control" placeholder="Search contacts">
+        </div>
+        <button type="submit" id="search_button" class="btn btn-default">Search</button>
+      </form>
+
+
+  </div>
+
+
+
+</nav>
+
+<br><br><br>
+<div class="page-header">
+  <h1>Address book <small></small></h1>
+<table>
+<div id="search_view"></div>
+</table>
+</div>
+
